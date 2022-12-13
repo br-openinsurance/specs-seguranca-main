@@ -1,4 +1,6 @@
 [req]
+oid_section = OIDs
+
 default_bits = 2048
 default_md = sha256
 encrypt_key = yes
@@ -7,23 +9,26 @@ string_mask = utf8only
 distinguished_name = client_distinguished_name
 req_extensions = req_cert_extensions
 
+[ OIDs ]
+organizationIdentifier = 2.5.4.97
+
 [ client_distinguished_name ]
-businessCategory = <type of organization>
+businessCategory = <tipo de organização>
 jurisdictionCountryName = BR
 serialNumber = <CNPJ>
 countryName = BR
-organizationName = <Company Name>
+organizationName = <Razão Social>
 stateOrProvinceName = <UF>
-localityName = <City>
-organizationalUnitName = <PArticipante Code>
-UID = <Software Statement ID issued by the Directory>
+localityName = <Cidade>
+organizationIdentifier = OPIBR-<Código de Participante>
+UID = <Software Statement ID emitido pelo diretório>
 commonName = <FQDN|Wildcard>
 
-[ req_cert_extensions ] 
+[ req_cert_extensions ]
 basicConstraints = CA:FALSE
 subjectAltName = @alt_name
 keyUsage = critical,digitalSignature,keyEncipherment
 extendedKeyUsage = clientAuth
 
-[ alt_name ] 
+[ alt_name ]
 DNS = <FQDN|Wildcard>
